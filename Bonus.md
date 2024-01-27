@@ -82,8 +82,8 @@ $ sudo apt purge apache2		# Uninstall
 ```
 - Install lighttpd
 ```
-$ sudo apt install lighttpd			# Install
-$ sudo lighttpd -v					# Check
+$ sudo apt install lighttpd		# Install
+$ sudo lighttpd -v			# Check
 $ sudo systemctl start lighttpd		# Start
 $ sudo systemctl enable lighttpd	# Enable
 $ sudo systemctl status lighttpd	# Check status
@@ -122,7 +122,7 @@ phpinfo();
 $ sudo apt install mariadb-server	# Install
 $ sudo systemctl start mariadb		# Start
 $ sudo systemctl enable mariadb		# Enable
-$ systemctl status mariadb			# Check status
+$ systemctl status mariadb		# Check status
 ```
 - Config mysql
 ```
@@ -131,7 +131,7 @@ $ sudo mysql_secure_installation
 Enter current password for root (enter for none): <Enter>	# Root user of db, not vm, but same pass anyway
 Switch to unix_socket authentication [Y/n]: Y
 Set root password? [Y/n]: Y
-New password: NumberCharsWhatever		# Make a secure one, same as before
+New password: NumberCharsWhatever				# Make a secure one, same as before
 Re-enter new password: NumberCharsWhatever				
 Remove anonymous users? [Y/n]: Y
 Disallow root login remotely? [Y/n]: Y
@@ -139,7 +139,7 @@ Remove test database and access to it? [Y/n]:  Y
 Reload privilege tables now? [Y/n]:  Y
 
 $ sudo systemctl restart mariadb		# Restart service
-$ $ mysql -u root -p					# Enter interface
+$ $ mysql -u root -p				# Enter interface
 ```
  - Create db for wordpress
 ```
@@ -199,13 +199,13 @@ https://github.com/ucefooo/born2beroot#bonus
 ```
 $ sudo apt install vsftpd ftp
 $ dpkg -l | grep vsftpd		# Verify install
-$ sudo ufw allow 21			# Allow port 21 (ftp) 
+$ sudo ufw allow 21		# Allow port 21 (ftp) 
 $ sudo vi /etc/vsftpd.conf	# Config vsftpd
 ```
 -  enable FTP write command & prevent user from accessing files or using commands outside the directory tree
 ```
 #write_enable=YES 		# Remove comment sign
-#chroot_local_user=YES 	# Remove comment sign
+#chroot_local_user=YES 		# Remove comment sign
 ```
 - add these lines to /etc/vsftpd.conf
 ```
@@ -227,9 +227,9 @@ $ sudo chmod a-w /home/hsetyamu/ftp
 ```
 -  whitelist FTP
 ```
-$ echo hsetyamu | sudo tee -a /etc/vsftpd.userlist # Make the file and add username
-$ cat /etc/vsftpd.userlist 			# Test
-$ sudo systemctl restart vsftpd 	# Restart to load
+$ echo hsetyamu | sudo tee -a /etc/vsftpd.userlist 	# Make the file and add username
+$ cat /etc/vsftpd.userlist 				# Test
+$ sudo systemctl restart vsftpd 			# Restart to load
 ```
 
 ### Connecting to Server via FTP
@@ -239,12 +239,12 @@ echo "vsftpd borntoberoot test file content" | sudo tee /home/hsetyamu/ftp/files
 ```
 
 ```
-$ ftp 127.0.0.1 							# via terminal in guest, exit by ctrl + d or "bye"
-											# user other than hsetyamu should fail
-											# enter passwd
-ftp> ls										# look around
+$ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
+						# user other than hsetyamu should fail
+						# enter passwd
+ftp> ls						# look around
 ftp> cd files
-ftp> get testfile.txt 						# transfer testfile.txt to local machine
+ftp> get testfile.txt 				# transfer testfile.txt to local machine
 ftp> put testfile.txt uploadtest.txt		# upload with a new name to test write permissions
 ftp> ls
 ```

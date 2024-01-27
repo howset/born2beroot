@@ -2,20 +2,20 @@
 
 ## User
 ```
-$ su - 							# the - is important!!
+$ su - 					# the - is important!!
 $ apt update && apt upgrade -y
 $ apt install sudo
 $ usermod -aG sudo hsetyamu		# Check with getent group sudo
-$ sudo visudo					# User privilege specification 	
-								# add the line hsetyamu	ALL=(ALL) ALL
-$ exit 							# exits su
+$ sudo visudo				# User privilege specification 	
+					# add the line hsetyamu	ALL=(ALL) ALL
+$ exit 					# exits su
 ```
 
 ## SSH
 ```
 $ sudo apt install openssh-server		# check with sudo systemctl status ssh or dpkg -l | grep ssh
 $ sudo nano /etc/ssh/sshd_config		# change port 22 to port 4242 & remove hash sign
-										# PermitRootLogin no
+						# PermitRootLogin no
 $ sudo grep Port /etc/ssh/sshd_config	# check
 $ sudo service ssh restart
 ```
@@ -34,7 +34,7 @@ $ ssh hsetyamu@127.0.0.1 -p 4243 	# or ssh hsetyamu@localhost -p 4243
 ## UFW (Uncomplicated Fire Wall)
 ```
 $ sudo apt install ufw
-$ sudo ufw enable		# check with sudo ufw status numbered
+$ sudo ufw enable	# check with sudo ufw status numbered
 $ sudo ufw allow ssh
 $ sudo ufw allow 4242 	# delete something with sudo ufw delete [number] 
 

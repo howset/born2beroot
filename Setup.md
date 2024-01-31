@@ -6,7 +6,7 @@ $ su - 					# the - is important!!
 $ apt update && apt upgrade -y
 $ apt install sudo
 $ usermod -aG sudo hsetyamu		# Check with getent group sudo
-$ sudo nano /etc/sudoers				# User privilege specification 	
+$ sudo nano /etc/sudoers		# User privilege specification 	
 					# add the line hsetyamu	ALL=(ALL) ALL
 $ exit 					# exits su
 ```

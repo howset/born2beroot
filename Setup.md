@@ -74,12 +74,12 @@ Architecture	: $ARCH
 Physical CPUs	: $PCPU
 Virtual CPUs	: $VCPU
 Memory Usage	: $RAM_USED/$RAM_TOTAL ($RAM_PERC)
-Disk Usage		: $DISK_USED/$DISK_TOTAL ($DISK_PERC)
-CPU Load		: $CPU_LOAD
-Last Boot		: $LAST_BOOT
+Disk Usage	: $DISK_USED/$DISK_TOTAL ($DISK_PERC)
+CPU Load	: $CPU_LOAD
+Last Boot	: $LAST_BOOT
 LVM use		: $LVM
 TCP Connections	: $TCP established
-User(s) logged		: $USER_LOG
+User(s) logged	: $USER_LOG
 Network		: $IP_ADDR ($MAC_ADDR)
 Sudo		: $SUDO_LOG command(s) used
 ------------------------------------------------"
@@ -88,7 +88,7 @@ Sudo		: $SUDO_LOG command(s) used
 ```
 $ chmod +x monitoring.sh
 $ sudo nano /etc/sudoers	# Members to execute any command 	
-							# add the line hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
+				# add the line hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
 ```
 
 ### Cron
@@ -139,7 +139,7 @@ password  requisite     pam_pwquality.so  retry=3 minlen=10 ucredit=-1 lcredit=-
 ```
 - make user hsetyamu belong to user42 group
 ```
-$ sudo groupadd user42	# create new group 
+$ sudo groupadd user42			# create new group 
 $ sudo usermod -aG user42 hsetyamu	# check getent group user42
 ```
 - make hsetyamu follows password policy (manually)

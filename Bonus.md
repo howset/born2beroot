@@ -67,11 +67,19 @@ Create a volume group:
 # Bonus 2 Wordpress
 https://github.com/mcombeau/Born2beroot/blob/main/guide/bonus_debian.md
 
+Wordpress is a web content management system, written in PHP and paired with a data base (MySQL or MariaDB). To function, WordPress has to be installed on a web server (http, either apache or nginx or )
+
+- Requirements:
+	- PHP version 7.4 or greater.
+    - MySQL version 5.7 or greater OR MariaDB version 10.4 or greater.
+	- HTTPS support (Lighttpd)
+
+
 ## PHP
 - Install php
 ```
 $ sudo apt install php php-common php-cgi php-cli php-mysql
-$ $ php -v				# check installation & version
+$ php -v				# check installation & version
 ```
 
 ## Lighttpd
@@ -99,7 +107,7 @@ $ sudo ufw status
 - Test Lighttpd
 	- Go to host machine browser and type in address http://127.0.0.1:8080 or http://localhost:8080. 
 	- Should see a Lighttpd "placeholder page".
-- Activate FastCGI module in VM (why?)
+- Activate FastCGI module in VM (why? maybe has something to do with performance improvements)
 ```
 $ sudo lighty-enable-mod fastcgi
 $ sudo lighty-enable-mod fastcgi-php
@@ -113,7 +121,8 @@ $ sudo service lighttpd force-reload
 phpinfo();
 ?>
 ```
-- Save and go to host browser and type in the address http://127.0.0.1:8080/info.php
+- Save and go to host browser and type in the address 
+```http://127.0.0.1:8080/info.php```
 - Should see a page with php info
 
 ## MariaDB
@@ -190,7 +199,7 @@ $ sudo chmod -R 755 /var/www/html/
 $ sudo systemctl restart lighttpd
 ```
 
-### http://127.0.0.1:8080 in host browser to see
+### ```http://127.0.0.1:8080 in host browser to see```
 
 # Bonus 3 Service (FTP)
 https://github.com/ucefooo/born2beroot#bonus

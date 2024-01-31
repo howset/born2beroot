@@ -71,7 +71,7 @@ Wordpress is a web content management system, written in PHP and paired with a d
 
 - Requirements:
 	- PHP version 7.4 or greater.
-    - MySQL version 5.7 or greater OR MariaDB version 10.4 or greater.
+	- MySQL version 5.7 or greater OR MariaDB version 10.4 or greater.
 	- HTTPS support (Lighttpd)
 
 
@@ -206,7 +206,7 @@ https://github.com/ucefooo/born2beroot#bonus
 
 ## FTP
 ```
-$ sudo apt install vsftpd # ftp
+$ sudo apt install vsftpd 	# ftp
 $ dpkg -l | grep vsftpd		# Verify install
 $ sudo ufw allow 21		# Allow port 21 (ftp) 
 $ sudo nano /etc/vsftpd.conf	# Config vsftpd

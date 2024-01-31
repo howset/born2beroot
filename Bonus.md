@@ -1,6 +1,4 @@
 # Bonus 1 Partition
-https://github.com/mcombeau/Born2beroot/blob/main/guide/installation_debian.md
-https://m4nnb3ll.medium.com/setting-up-a-wordpress-server-on-debian-born2beroot-bonus-42-the-network-7681349fe5b7
 
 ## Virtual box prep
 - Get [debian](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/) netinst
@@ -65,14 +63,13 @@ Create a volume group:
 
 
 # Bonus 2 Wordpress
-https://github.com/mcombeau/Born2beroot/blob/main/guide/bonus_debian.md
 
-Wordpress is a web content management system, written in PHP and paired with a data base (MySQL or MariaDB). To function, WordPress has to be installed on a web server (http, either apache or nginx or )
+Wordpress is a web content management system, written in PHP and paired with a data base (MySQL or MariaDB). To function, WordPress has to be installed on a web server (http, either apache or nginx or lighttpd)
 
 - Requirements:
-	- PHP version 7.4 or greater.
-	- MySQL version 5.7 or greater OR MariaDB version 10.4 or greater.
-	- HTTPS support (Lighttpd)
+	- **PHP** version 7.4 or greater.
+	- MySQL version 5.7 or greater OR **MariaDB** version 10.4 or greater.
+	- HTTPS support (**Lighttpd**)
 
 
 ## PHP

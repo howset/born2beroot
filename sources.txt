@@ -1,0 +1,4 @@
+Sources
+https://github.com/mcombeau/Born2beroot/blob/main/guide/installation_debian.md
+https://m4nnb3ll.medium.com/setting-up-a-wordpress-server-on-debian-born2beroot-bonus-42-the-network-7681349fe5b7
+https://github.com/mcombeau/Born2beroot/blob/main/guide/bonus_debian.md

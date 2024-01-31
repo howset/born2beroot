@@ -95,6 +95,32 @@ $ sudo nano /etc/sudoers	# Members to execute any command
 
 - Open crontab ```sudo crontab -u root -e```
 - Add this line ```*/10 * * * * /usr/local/bin/monitoring.sh```
+-  To make it execute every ten minutes from system startup, create another script (sleep.sh) to calculate the delay between server startup time and the tenth minute of the hour. Add this to cron to apply delay.
+
+```
+$ cd /usr/local/bin/
+$ nano sleep.sh
+```
+- paste this
+```
+#!bin/bash
+
+# Get boot time minutes and seconds
+BOOT_MIN=$(uptime -s | cut -d ":" -f 2)
+BOOT_SEC=$(uptime -s | cut -d ":" -f 3)
+
+# Calculate number of seconds between the nearest 10th minute of the hour and boot time:
+# Ex: if boot time was 11:43:36
+# 43 % 10 = 3 minutes since 40th minute of the hour
+# 3 * 60 = 180 seconds since 40th minute of the hour
+# 180 + 36 = 216 seconds between nearest 10th minute of the hour and boot
+DELAY=$(bc <<< $BOOT_MIN%10*60+$BOOT_SEC)
+
+# Wait that number of seconds
+sleep $DELAY
+```
+- Open crontab ```sudo crontab -u root -e```
+- Make this line ```*/10 * * * * /usr/local/bin/sleep.sh && /usr/local/bin/monitoring.sh```
 
 ## Sudo
 ### Create sudo log
@@ -157,5 +183,8 @@ Notes:
 - Check all local user: ```cut -d: -f1 /etc/passwd```
 - Check jostname: ```hostnamectl```
 - Change hostname: ```sudo hostnamectl set-hostname <new_hostname>```	# need reboot
+- Stop cron: ```sudo /etc/init.d/cron stop```
+- Cron stop: ```sudo /etc/init.d/cron start```
+
 
 

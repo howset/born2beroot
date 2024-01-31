@@ -6,7 +6,7 @@ $ su - 					# the - is important!!
 $ apt update && apt upgrade -y
 $ apt install sudo
 $ usermod -aG sudo hsetyamu		# Check with getent group sudo
-$ sudo visudo				# User privilege specification 	
+$ sudo nano /etc/sudoers				# User privilege specification 	
 					# add the line hsetyamu	ALL=(ALL) ALL
 $ exit 					# exits su
 ```
@@ -39,15 +39,72 @@ $ sudo ufw allow ssh
 $ sudo ufw allow 4242 	# delete something with sudo ufw delete [number] 
 
 ```
+## Monitoring script and cron
+### Monitoring script
 
-## Create sudo log
+```
+$ cd /usr/local/bin/
+$ nano monitoring.sh
+```
+- paste this
+```
+#!/bin/bash
+
+ARCH=$(uname -srmo)
+PCPU=$(cat /proc/cpuinfo | grep 'physical id' | uniq | wc -l)
+VCPU=$(cat /proc/cpuinfo | grep 'processor' | uniq | wc -l)
+RAM_TOTAL=$(free -h | grep Mem | awk '{print $2}')
+RAM_USED=$(free -h | grep Mem | awk '{print $3}')
+RAM_PERC=$(free -h | grep Mem | awk '{printf("%.2f%%"), $3 / $2 * 100}')
+DISK_TOTAL=$(df -h --total | grep total | awk '{print $2}') #top -bn1 | grep '^MiB Mem' | awk '{print >
+DISK_USED=$(df -h --total | grep total | awk '{print $3}') #top -bn1 | grep '^MiB Mem' | awk '{print $>
+DISK_PERC=$(df -h --total | grep total | awk '{print $5}')
+CPU_LOAD=$(top -bn1 | grep '^%Cpu' | xargs | awk '{printf("%.1f%%"), $2 + $4}') #vmstat
+LAST_BOOT=$(who -b | awk '{print($3 " " $4)}')
+LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
+TCP=$(cat /proc/net/sockstat| grep 'TCP' | awk '{print $3}')
+USER_LOG=$(who | wc -l) #users | wc -l
+IP_ADDR=$(hostname -I | awk '{print $1}')
+MAC_ADDR=$(ip link | grep link/ether | awk '{print $2}')
+SUDO_LOG=$(cat /var/log/sudo/sudo.log | grep COMMAND | wc -l)
+
+wall "
+------------------------------------------------
+Architecture	: $ARCH
+Physical CPUs	: $PCPU
+Virtual CPUs	: $VCPU
+Memory Usage	: $RAM_USED/$RAM_TOTAL ($RAM_PERC)
+Disk Usage		: $DISK_USED/$DISK_TOTAL ($DISK_PERC)
+CPU Load		: $CPU_LOAD
+Last Boot		: $LAST_BOOT
+LVM use		: $LVM
+TCP Connections	: $TCP established
+User(s) logged		: $USER_LOG
+Network		: $IP_ADDR ($MAC_ADDR)
+Sudo		: $SUDO_LOG command(s) used
+------------------------------------------------"
+```
+
+```
+$ chmod +x monitoring.sh
+$ sudo nano /etc/sudoers
+```
+- Add hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh to execute any command
+
+### Cron
+
+- Open crontab ```sudo crontab -u root -e```
+- Add this line ```*/10 * * * * /usr/local/bin/monitoring.sh```
+
+## Sudo
+### Create sudo log
 ```
 $ cd /var/log
 $ sudo mkdir sudo			#if non existant
 $ sudo touch sudo/sudo.log
 ```
 
-## Configure sudoers group
+### Configure sudoers group
 ```
 $ sudo nano /etc/sudoers
 ```
@@ -83,8 +140,7 @@ password  requisite     pam_pwquality.so  retry=3 minlen=10 ucredit=-1 lcredit=-
 - make user hsetyamu belong to user42 group
 ```
 $ sudo groupadd user42	# create new group 
-$ sudo usermod -aG user42 hsetyamu
-
+$ sudo usermod -aG user42 hsetyamu	# check getent group user42
 ```
 - make hsetyamu follows password policy (manually)
 ```
@@ -96,7 +152,10 @@ Notes:
 - Create group: ```sudo groupadd groupname```
 - Delete group: ```sudo groupdel groupname```
 - Create user: ```sudo useradd username```
-- Delete user: ```sudo deluser username```
+- Delete user: ```sudo userdel username```
+- Sudo file: ```sudo nano /etc/sudoers``` or ```sudo visudo```
+- Check all local user: ```cut -d: -f1 /etc/passwd```
+- Check jostname: ```hostnamectl```
+- Change hostname: ```sudo hostnamectl set-hostname <new_hostname>```	# need reboot
 
-## Monitoring script and cron
-- todo
+

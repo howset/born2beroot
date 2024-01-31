@@ -13,23 +13,23 @@ CPU_LOAD=$(top -bn1 | grep '^%Cpu' | xargs | awk '{printf("%.1f%%"), $2 + $4}') 
 LAST_BOOT=$(who -b | awk '{print($3 " " $4)}')
 LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
 TCP=$(cat /proc/net/sockstat| grep 'TCP' | awk '{print $3}')
-USER_LOG=$(who | wc -l)
+USER_LOG=$(who | wc -l) #users | wc -l
 IP_ADDR=$(hostname -I | awk '{print $1}')
 MAC_ADDR=$(ip link | grep link/ether | awk '{print $2}')
 SUDO_LOG=$(cat /var/log/sudo/sudo.log | grep COMMAND | wc -l)
 
 wall "
 ------------------------------------------------
-Architecture    : $ARCH
-Physical CPUs   : $PCPU
-Virtual CPUs    : $VCPU
-Memory Usage    : $RAM_USED/$RAM_TOTAL ($RAM_PERC)
-Disk Usage      : $DISK_USED/$DISK_TOTAL ($DISK_PERC)
-CPU Load        : $CPU_LOAD
-Last Boot       : $LAST_BOOT
-LVM use         : $LVM
-TCP Connections : $TCP established
-Users logged    : $USER_LOG
-Network         : $IP_ADDR ($MAC_ADDR)
-Sudo            : $SUDO_LOG commands used
+Architecture	: $ARCH
+Physical CPUs	: $PCPU
+Virtual CPUs	: $VCPU
+Memory Usage	: $RAM_USED/$RAM_TOTAL ($RAM_PERC)
+Disk Usage		: $DISK_USED/$DISK_TOTAL ($DISK_PERC)
+CPU Load		: $CPU_LOAD
+Last Boot		: $LAST_BOOT
+LVM use		: $LVM
+TCP Connections	: $TCP established
+User(s) logged		: $USER_LOG
+Network		: $IP_ADDR ($MAC_ADDR)
+Sudo		: $SUDO_LOG command(s) used
 ------------------------------------------------"

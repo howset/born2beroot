@@ -206,15 +206,15 @@ https://github.com/ucefooo/born2beroot#bonus
 
 ## FTP
 ```
-$ sudo apt install vsftpd ftp
+$ sudo apt install vsftpd # ftp
 $ dpkg -l | grep vsftpd		# Verify install
 $ sudo ufw allow 21		# Allow port 21 (ftp) 
-$ sudo vi /etc/vsftpd.conf	# Config vsftpd
+$ sudo nano /etc/vsftpd.conf	# Config vsftpd
 ```
 -  enable FTP write command & prevent user from accessing files or using commands outside the directory tree
 ```
-#write_enable=YES 		# Remove comment sign
-#chroot_local_user=YES 		# Remove comment sign
+write_enable=YES 		# allow changes to the filesystem(uploading)
+chroot_local_user=YES 		# make local users jailed by default
 ```
 - add these lines to /etc/vsftpd.conf
 ```
@@ -224,8 +224,8 @@ local_root=/home/$USER/ftp
 
 # Access are given only when explicitly added.
 userlist_enable=YES
-userlist_file=/etc/vsftpd.userlist
-userlist_deny=NO
+userlist_file=/etc/vsftpd.userlist # specifies the file which lists users that are not able to login
+userlist_deny=NO #  to allow only certain users to login
 ```
 - set root folder for FTP-connected user to /home/hsetyamu/ftp
 ```

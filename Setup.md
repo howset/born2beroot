@@ -94,6 +94,7 @@ $ sudo chage hsetyamu -m 2 -M 30 -W 7
 Notes:
 - Set/change password: ```sudo passwd username```
 - Create group: ```sudo groupadd groupname```
+- Delete group: ```sudo groupdel groupname```
 - Create user: ```sudo useradd username```
 - Delete user: ```sudo deluser username```
 

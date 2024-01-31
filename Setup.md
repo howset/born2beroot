@@ -87,9 +87,9 @@ Sudo		: $SUDO_LOG command(s) used
 
 ```
 $ chmod +x monitoring.sh
-$ sudo nano /etc/sudoers
+$ sudo nano /etc/sudoers	# Members to execute any command 	
+							# add the line hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
 ```
-- Add hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh to execute any command
 
 ### Cron
 

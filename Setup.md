@@ -44,7 +44,7 @@ $ sudo ufw allow 4242 	# delete something with sudo ufw delete [number]
 
 ```
 $ cd /usr/local/bin/
-$ nano monitoring.sh
+$ sudo nano monitoring.sh
 ```
 - paste this
 ```
@@ -99,7 +99,7 @@ $ sudo nano /etc/sudoers	# Members to execute any command
 
 ```
 $ cd /usr/local/bin/
-$ nano sleep.sh
+$ sudo nano sleep.sh
 ```
 - paste this
 ```

@@ -157,10 +157,7 @@ MariaDB [(none)]> EXIT;
  - Check that the database was created
 ```
 $ mysql -u root -p
-```
- - Show db
-```
-MariaDB [(none)]> show databases;
+MariaDB [(none)]> show databases; # Show db
 ```
 
 ## Wordpress itself

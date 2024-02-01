@@ -64,14 +64,6 @@ Create a volume group:
 
 # Bonus 2 Wordpress
 
-Wordpress is a web content management system, written in PHP and paired with a data base (MySQL or MariaDB). To function, WordPress has to be installed on a web server (http, either apache or nginx or lighttpd)
-
-- Requirements:
-	- **PHP** version 7.4 or greater.
-	- MySQL version 5.7 or greater OR **MariaDB** version 10.4 or greater.
-	- HTTPS support (**Lighttpd**)
-
-
 ## PHP
 - Install php
 ```

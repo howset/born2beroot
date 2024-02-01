@@ -184,11 +184,11 @@ Notes:
 - Delete user: ```sudo userdel username```
 - Sudo file: ```sudo nano /etc/sudoers``` or ```sudo visudo```
 - Check all local user: ```cut -d: -f1 /etc/passwd```
-- Check jostname: ```hostnamectl```
+- Check hostname: ```hostnamectl```
 - Change hostname: ```sudo hostnamectl set-hostname <new_hostname>```	# need reboot
 - Change hostname: ```sudo nano /etc/hostname```
 - Stop cron: ```sudo /etc/init.d/cron stop```
-- Cron stop: ```sudo /etc/init.d/cron start```
+- Start cron: ```sudo /etc/init.d/cron start```
 - Check AppArmor: ```sudo aa-status```
 
 

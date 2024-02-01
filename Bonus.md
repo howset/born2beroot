@@ -195,7 +195,6 @@ $ sudo systemctl restart lighttpd
 - http://127.0.0.1:8080/wp-admin/
 
 # Bonus 3 Service (FTP)
-https://github.com/ucefooo/born2beroot#bonus
 
 ## FTP
 ```

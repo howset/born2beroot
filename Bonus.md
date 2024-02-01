@@ -235,9 +235,10 @@ $ sudo systemctl restart vsftpd 			# Restart to load
 ```
 
 ### Connecting to Server via FTP
-- Prepare test file
+- Prepare test file and restart
 ```
-echo "vsftpd borntoberoot test file content" | sudo tee /home/hsetyamu/ftp/files/testfile.txt
+$ echo "vsftpd borntoberoot test file content" | sudo tee /home/hsetyamu/ftp/files/testfile.txt
+$ sudo service vsftpd restart
 ```
 
 ```
@@ -252,5 +253,5 @@ ftp> ls
 ```
 Notes:
 - Check user in mariadb: ```SELECT User,Host FROM mysql.user;```
-- Delete db in mariadb: ```DROP DATABASE <db_name>```
+- Delete db in mariadb: ```DROP DATABASE <db_name>;```
 - Delete user in maria db: ```DROP USER 'hsetyamu'@'localhost';```

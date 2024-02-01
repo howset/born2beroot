@@ -5,3 +5,5 @@ https://github.com/mcombeau/Born2beroot/blob/main/guide/bonus_debian.md
 https://github.com/Thuggonaut/42IC_Ring01_Born2beRoot
 https://github.com/pasqualerossi/Born2BeRoot-Guide
 https://github.com/gemartin99/Born2beroot-Tutorial/blob/main/README_EN.md
+https://github.com/ucefooo/born2beroot#bonus
+https://www.howtoforge.com/how-to-install-lighttpd-with-php-and-mariadb-on-debian-10/

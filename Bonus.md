@@ -250,3 +250,7 @@ ftp> get testfile.txt 				# transfer testfile.txt to local machine
 ftp> put testfile.txt uploadtest.txt		# upload with a new name to test write permissions
 ftp> ls
 ```
+Notes:
+- Check user in mariadb: ```SELECT User,Host FROM mysql.user;```
+- Delete db in mariadb: ```DROP DATABASE <db_name>```
+- Delete user in maria db: ```DROP USER 'hsetyamu'@'localhost';```

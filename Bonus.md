@@ -150,7 +150,7 @@ $ mysql -u root -p						# Enter interface
 ```
 MariaDB [(none)]> CREATE DATABASE wordpress_db_bonus;
 MariaDB [(none)]> CREATE USER 'hsetyamu'@'localhost' IDENTIFIED BY 'NumberCharsWhatever';
-MariaDB [(none)]> GRANT ALL ON wordpress_db.* TO 'hsetyamu'@'localhost' IDENTIFIED BY 'NumberCharsWhatever' WITH GRANT OPTION;
+MariaDB [(none)]> GRANT ALL ON wordpress_db_bonus.* TO 'hsetyamu'@'localhost' IDENTIFIED BY 'NumberCharsWhatever' WITH GRANT OPTION;
 MariaDB [(none)]> FLUSH PRIVILEGES;
 MariaDB [(none)]> EXIT;
 ```

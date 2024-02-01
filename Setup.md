@@ -189,6 +189,7 @@ Notes:
 - Change hostname: ```sudo nano /etc/hostname```
 - Stop cron: ```sudo /etc/init.d/cron stop```
 - Cron stop: ```sudo /etc/init.d/cron start```
+- Check AppArmor: ```sudo aa-status```
 
 
 

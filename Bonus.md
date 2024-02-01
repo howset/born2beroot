@@ -191,8 +191,8 @@ $ sudo chown -R www-data:www-data /var/www/html/
 $ sudo chmod -R 755 /var/www/html/
 $ sudo systemctl restart lighttpd
 ```
-
-### ```http://127.0.0.1:8080 in host browser to see```
+- http://127.0.0.1:8080 in host browser to see
+- http://127.0.0.1:8080/wp-admin/
 
 # Bonus 3 Service (FTP)
 https://github.com/ucefooo/born2beroot#bonus

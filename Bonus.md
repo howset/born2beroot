@@ -180,7 +180,7 @@ define( 'DB_NAME', 'wordpress_db_bonus' );
 define( 'DB_USER', 'hsetyamu' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'HSpassw0rd' );
+define( 'DB_PASSWORD', 'NumberCharsWhatever' );
 
 /** Database host */
 define( 'DB_HOST', 'localhost' );

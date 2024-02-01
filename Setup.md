@@ -101,6 +101,9 @@ $ sudo nano /etc/sudoers	# Members to execute any command
 $ cd /usr/local/bin/
 $ sudo nano sleep.sh
 ```
+
+### Sleep script (not yet working)
+
 - paste this
 ```
 #!bin/bash
@@ -183,6 +186,7 @@ Notes:
 - Check all local user: ```cut -d: -f1 /etc/passwd```
 - Check jostname: ```hostnamectl```
 - Change hostname: ```sudo hostnamectl set-hostname <new_hostname>```	# need reboot
+- Change hostname: ```sudo nano /etc/hostname```
 - Stop cron: ```sudo /etc/init.d/cron stop```
 - Cron stop: ```sudo /etc/init.d/cron start```
 

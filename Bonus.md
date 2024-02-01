@@ -118,8 +118,7 @@ $ sudo service lighttpd force-reload
 phpinfo();
 ?>
 ```
-- Save and go to host browser and type in the address 
-```http://127.0.0.1:8080/info.php```
+- Save and go to host browser and type in the address http://127.0.0.1:8080/info.php
 - Should see a page with php info
 
 ## MariaDB

@@ -144,7 +144,7 @@ Remove test database and access to it? [Y/n]:  Y
 Reload privilege tables now? [Y/n]:  Y
 
 $ sudo systemctl restart mariadb				# Restart service
-$ $ mysql -u root -p						# Enter interface
+$ mysql -u root -p						# Enter interface
 ```
  - Create db for wordpress
 ```

@@ -16,12 +16,15 @@
 	- Debian follows a stable philosophy. Rocky since very close to fedora (also from redhat) maybe more bleeding-edge. Debian uses apt, rocky uses dnf.
 	- Both fedora and debian are very popular due to strong support by the respective communities, which makes rocky also a very good candidate of choice.
 - Difference between apt and aptitude
+	- Both are package managers that use dpkg behind the scenes
 	- Aptitude is a high-level package manager while APT is lower-level package manager which can be used by other higher-level package managers.
 	- https://www.tecmint.com/difference-between-apt-and-aptitude/
 	- https://www.fosslinux.com/43884/apt-vs-aptitude.htm
 - What is AppArmor
 	- a Linux kernel security module that allows the system administrator to restrict programs' capabilities with per-program profiles. (wiki)
 	- supplements the traditional Unix discretionary access control (DAC) model by providing mandatory access control (MAC)
+	- Before any syscall the kernel check with AppArmor (or SELinux) if the process is allowed to execute that command or access the file. By configuring them we can restrict the actions that subjects (processes) can perform on objects (files, IO, memory, Network ports, etc.)
+	- AppArmor allows access by default; policies then restrict access to objects. SELinux restricts access by default; policies then allow access to objects.
 - Script must work
 
 ### Simple setup
@@ -52,6 +55,8 @@ $ getent group user42
 	- Password complexity
 	- Adv: maintain security integrity of the system
 	- Dis: complex password, easy to forget.
+- PAM (Pluggable Authentication Module)
+	- A suite of libraries that allows a Linux system administrator to configure methods to authenticate users. 
 
 ### Hostname and Partitions
 - Check hostname (hsetyamu42)

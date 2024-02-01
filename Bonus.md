@@ -96,7 +96,7 @@ $ sudo ufw status
 - Test Lighttpd
 	- Go to host machine browser and type in address http://127.0.0.1:8080 or http://localhost:8080. 
 	- Should see a Lighttpd "placeholder page".
-- Activate FastCGI module in VM (why? maybe has something to do with performance improvements)
+- Activate FastCGI module in VM (a protocol that interfaces applications (like PHP) to web servers)
 ```
 $ sudo lighty-enable-mod fastcgi
 $ sudo lighty-enable-mod fastcgi-php
@@ -193,6 +193,7 @@ $ sudo systemctl restart lighttpd
 $ sudo apt install vsftpd 	# ftp
 $ dpkg -l | grep vsftpd		# Verify install
 $ sudo ufw allow 21		# Allow port 21 (ftp) 
+$ sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak # Make backup
 $ sudo nano /etc/vsftpd.conf	# Config vsftpd
 ```
 -  enable FTP write command & prevent user from accessing files or using commands outside the directory tree
@@ -216,7 +217,7 @@ userlist_deny=NO #  to allow only certain users to login
 $ sudo mkdir /home/hsetyamu/ftp
 $ sudo mkdir /home/hsetyamu/ftp/files
 $ sudo chown nobody:nogroup /home/hsetyamu/ftp
-$ sudo chmod a-w /home/hsetyamu/ftp
+$ sudo chmod a-w /home/hsetyamu/ftp		# remove write permission, conflict with chroot config on ftp
 ```
 -  whitelist FTP
 ```
@@ -242,6 +243,9 @@ ftp> get testfile.txt 				# transfer testfile.txt to local machine
 ftp> put testfile.txt uploadtest.txt		# upload with a new name to test write permissions
 ftp> ls
 ```
+or 
+```sftp -P <port> <username>@<ip-address>```
+
 Notes:
 - Check user in mariadb: ```SELECT User,Host FROM mysql.user;```
 - Delete db in mariadb: ```DROP DATABASE <db_name>;```

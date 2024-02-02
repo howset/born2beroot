@@ -209,8 +209,8 @@ local_root=/home/$USER/ftp
 
 # Access are given only when explicitly added.
 userlist_enable=YES
-userlist_file=/etc/vsftpd.userlist # specifies the file which lists users that are not able to login
-userlist_deny=NO #  to allow only certain users to login
+userlist_file=/etc/vsftpd.userlist 	# specifies the file which lists users that are not able to login
+userlist_deny=NO 			#  to allow only certain users to login
 ```
 - set root folder for FTP-connected user to /home/hsetyamu/ftp
 ```

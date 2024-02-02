@@ -1,7 +1,7 @@
 # Setup
 
 ## User
-```
+```bash
 $ su - 					# the - is important!!
 $ apt update && apt upgrade -y
 $ apt install sudo
@@ -12,7 +12,7 @@ $ exit 					# exits su
 ```
 
 ## SSH
-```
+```bash
 $ sudo apt install openssh-server		# check with sudo systemctl status ssh or dpkg -l | grep ssh
 $ sudo nano /etc/ssh/sshd_config		# change port 22 to port 4242 & remove hash sign
 						# PermitRootLogin no
@@ -21,18 +21,18 @@ $ sudo service ssh restart
 ```
 - go to virtual box, ```settings``` >> ```network adapter``` >> ```NAT``` (Network Address Translation) >> ```Advanced``` >> ```port forwarding``` >> ```Add```
 - change host to ```4243```, guest to ```4242```
-```
+```bash
 $ sudo systemctl restart ssh
 $ sudo service sshd status
 $ ip addr | grep inet
 ```
 - on host
-```
+```bash
 $ ssh hsetyamu@127.0.0.1 -p 4243 	# or ssh hsetyamu@localhost -p 4243
 ```
 
 ## UFW (Uncomplicated Fire Wall)
-```
+```bash
 $ sudo apt install ufw
 $ sudo ufw enable	# check with sudo ufw status numbered
 $ sudo ufw allow ssh
@@ -42,12 +42,12 @@ $ sudo ufw allow 4242 	# delete something with sudo ufw delete [number]
 ## Monitoring script and cron
 ### Monitoring script
 
-```
+```bash
 $ cd /usr/local/bin/
 $ sudo nano monitoring.sh
 ```
 - paste this
-```
+```bash
 #!/bin/bash
 
 ARCH=$(uname -srmo)
@@ -85,7 +85,7 @@ Sudo		: $SUDO_LOG command(s) used
 ------------------------------------------------"
 ```
 
-```
+```bash
 $ chmod +x monitoring.sh
 $ sudo nano /etc/sudoers	# Members to execute any command 	
 				# add the line hsetyamu ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
@@ -97,7 +97,7 @@ $ sudo nano /etc/sudoers	# Members to execute any command
 - Add this line ```*/10 * * * * /usr/local/bin/monitoring.sh```
 -  To make it execute every ten minutes from system startup, create another script (sleep.sh) to calculate the delay between server startup time and the tenth minute of the hour. Add this to cron to apply delay.
 
-```
+```bash
 $ cd /usr/local/bin/
 $ sudo nano sleep.sh
 ```
@@ -105,7 +105,7 @@ $ sudo nano sleep.sh
 ### Sleep script (not yet working)
 
 - paste this
-```
+```bash
 #!bin/bash
 
 # Get boot time minutes and seconds
@@ -127,18 +127,18 @@ sleep $DELAY
 
 ## Sudo
 ### Create sudo log
-```
+```bash
 $ cd /var/log
 $ sudo mkdir sudo			#if non existant
 $ sudo touch sudo/sudo.log
 ```
 
 ### Configure sudoers group
-```
+```bash
 $ sudo nano /etc/sudoers
 ```
 - Add
-```
+```bash
 Defaults	env_reset
 Defaults	mail_badpass
 Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin"
@@ -150,29 +150,29 @@ Defaults	requiretty
 ```
 
 ## Password policy and group assignment
-```
+```bash
 $ sudo nano /etc/login.defs
 ```
-```
+```bash
 PASS_MAX_DAYS	30
 PASS_MIN_DAYS	2
 PASS_WARN_AGE	7
 ```
-```
+```bash
 $ sudo apt install libpam-pwquality
 $ sudo nano /etc/pam.d/common-password
 ```
 - make the line look like this
-```
+```bash
 password  requisite     pam_pwquality.so  retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
 ```
 - make user hsetyamu belong to user42 group
-```
+```bash
 $ sudo groupadd user42			# create new group 
 $ sudo usermod -aG user42 hsetyamu	# check getent group user42
 ```
 - make hsetyamu follows password policy (manually)
-```
+```bash
 $ sudo chage hsetyamu -m 2 -M 30 -W 7
 ```
 

@@ -9,3 +9,4 @@ https://github.com/ucefooo/born2beroot#bonus
 https://www.howtoforge.com/how-to-install-lighttpd-with-php-and-mariadb-on-debian-10/
 https://github.com/librity/ft_born2beroot
 https://github.com/HEADLIGHTER/Born2BeRoot-42
+https://adamtheautomator.com/vsftpd/

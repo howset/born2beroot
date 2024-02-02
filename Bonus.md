@@ -216,9 +216,10 @@ userlist_deny=NO 			#  to allow only certain users to login
 ```bash
 $ sudo mkdir /home/hsetyamu/ftp
 $ sudo mkdir /home/hsetyamu/ftp/files
-$ sudo chown nobody:nogroup /home/hsetyamu/ftp
-$ sudo chmod a-w /home/hsetyamu/ftp		# remove write permission, conflict with chroot config on ftp
+$ sudo chown nobody:nogroup /home/hsetyamu/ftp	# Sets the ownerto be nobody
+$ sudo chmod a-w /home/hsetyamu/ftp		# only the owner (FTP user) has write access (conflict with chroot config on ftp)
 ```
+
 -  whitelist FTP
 ```bash
 $ echo hsetyamu | sudo tee -a /etc/vsftpd.userlist 	# Make the file and add username

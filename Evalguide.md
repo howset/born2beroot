@@ -36,7 +36,7 @@
 
 ### User
 - Check student login (hsetyamu) 
-```
+```bash
 $ getent group sudo
 $ getent group user42
 ```
@@ -61,7 +61,7 @@ $ getent group user42
 ### Hostname and Partitions
 - Check hostname (hsetyamu42)
 - Modify hostname (reboot afterwards)
-```
+```bash
 $ sudo hostnamectl set-hostname <new_hostname>	
 or
 $ sudo nano /etc/hostname
@@ -86,7 +86,7 @@ $ sudo nano /etc/hostname
 ### UFW
 - Check installation: ```dpkg -l | grep ufw```
 - Check function
-```
+```bash
 $ sudo ufw status
 $ sudo ufw allow 8080 # open port 8080
 $ sudo ufw status numbered # get number
@@ -100,7 +100,7 @@ $ sudo ufw delete [number] # delete
 - Check installation: ```dpkg -l | grep ssh```
 - Check function: ```sudo systemctl status ssh```
 - SSH
-	- a network protocol that gives users, a secure way to access a system over an unsecured network.
+	- a network protocol that gives users a secure way to access a system over an unsecured network.
 - ```ssh <username>@localhost -p 4243```
 
 ### Script
@@ -129,7 +129,7 @@ $ sudo ufw delete [number] # delete
 	- HTTPS support (**Lighttpd**)
 
 - Neither Apache2 nor NGINX are used. Check services by:
-```
+```bash
 $ systemctl list-units --type=service # || sudo service --status-all || ls -l /etc/init.d/*
 ```
 - Refer to Bonus.md
@@ -139,7 +139,7 @@ $ systemctl list-units --type=service # || sudo service --status-all || ls -l /e
 
 ### Free Choice
 - vsftpd: ftp service
-```
+```bash
 $ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
 						# user other than hsetyamu should fail
 						# enter passwd

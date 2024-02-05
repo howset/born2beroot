@@ -190,6 +190,7 @@ Notes:
 - Stop cron: ```sudo /etc/init.d/cron stop```
 - Start cron: ```sudo /etc/init.d/cron start```
 - Check AppArmor: ```sudo aa-status```
+- Check password policy for a user: ```sudo chage -l hsetyamu```
 
 
 

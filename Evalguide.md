@@ -102,6 +102,7 @@ $ sudo ufw delete [number] # delete
 - SSH
 	- a network protocol that gives users a secure way to access a system over an unsecured network.
 - ```ssh <username>@localhost -p 4243```
+- https://www.tecmint.com/disable-or-enable-ssh-root-login-and-limit-ssh-access-in-linux/
 
 ### Script
 - Show code ```sudo cat /usr/local/bin/monitoring.sh```

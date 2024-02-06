@@ -111,8 +111,8 @@ $ sudo ufw delete [number] # delete
 - crontab
 	- the configuration file
 	- ```sudo crontab -u root -e```
-- Stop cron: ```sudo /etc/init.d/cron stop``` or ```sudo cronstop```
-- Start cron: ```sudo /etc/init.d/cron start``` or ```sudo cronstart```
+- Stop cron: ```sudo /etc/init.d/cron stop``` or ```sudo cron stop```
+- Start cron: ```sudo /etc/init.d/cron start``` or ```sudo cron start```
 
 ## Bonus
 ### Partitions

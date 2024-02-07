@@ -1,6 +1,7 @@
 # Evaluation Guide
 
 - Compare signature.txt with the ```sha1sum *.vdi```
+- Prepare for bonus, check website before turning on the machine.
 
 ## Mandatory Part
 ### Project Overview

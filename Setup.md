@@ -166,6 +166,17 @@ $ sudo nano /etc/pam.d/common-password
 ```bash
 password  requisite     pam_pwquality.so  retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
 ```
+```
+# retry => Prompt user at most N times before returning with error. The default is 1.
+# minlen => The minimum acceptable size for new password 
+# ucredit => Maximum uppercase characters, if less than 0 it is the minimum number of uppercase characters.
+# lcredit => Maximum lowercase characters, if less than 0 it is the minimum number of lowercase characters.
+# dcredit => Maximum credit for digits in the new password, if less than 0 it is the minimum number of digits.
+# maxrepeat => Maximum number of allowed consecutive same characters in the new password.
+# reject_username => The password can not contain the username inside itself.
+# difok => Number of characters in the new password that must not be present in the old password.
+# enforce_for_root => Enforces pwquality checks on the root user password.
+```
 - make user hsetyamu belong to user42 group
 ```bash
 $ sudo groupadd user42			# create new group 

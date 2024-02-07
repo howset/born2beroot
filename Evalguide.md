@@ -50,7 +50,12 @@ $ getent group user42
 - Password policy (/etc/login.defs) 
 	- Password change & expiry
 	- Adv: maintain security integrity of the system
-	- Dis: frequent change, easy to forget.  
+	- Dis: frequent change, easy to forget.
+```
+PASS_MAX_DAYS => max days until password expires.
+PASS_MIN_DAYS => min days until password change.
+PASS_WARN_AGE => days until password warning.
+```
 - Password policy (/etc/pam.d/common-password)
 	- Password complexity
 	- Adv: maintain security integrity of the system

@@ -56,7 +56,18 @@ $ getent group user42
 	- Adv: maintain security integrity of the system
 	- Dis: complex password, easy to forget.
 - PAM (Pluggable Authentication Module)
-	- A suite of libraries that allows a Linux system administrator to configure methods to authenticate users. 
+	- A suite of libraries that allows a Linux system administrator to configure methods to authenticate users.
+```
+# retry => Prompt user at most N times before returning with error. The default is 1.
+# minlen => The minimum acceptable size for new password 
+# ucredit => Maximum uppercase characters, if less than 0 it is the minimum number of uppercase characters.
+# lcredit => Maximum lowercase characters, if less than 0 it is the minimum number of lowercase characters.
+# dcredit => Maximum credit for digits in the new password, if less than 0 it is the minimum number of digits.
+# maxrepeat => Maximum number of allowed consecutive same characters in the new password.
+# reject_username => The password can not contain the username inside itself.
+# difok => Number of characters in the new password that must not be present in the old password.
+# enforce_for_root => Enforces pwquality checks on the root user password.
+``` 
 
 ### Hostname and Partitions
 - Check hostname (hsetyamu42)

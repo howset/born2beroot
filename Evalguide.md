@@ -162,6 +162,7 @@ $ systemctl status lighttpd
 
 ### Free Choice
 - vsftpd: ftp service
+- show directory content for easier view before ftp.
 ```bash
 $ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
 						# user other than hsetyamu should fail

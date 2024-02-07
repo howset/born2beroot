@@ -150,6 +150,9 @@ $ sudo ufw delete [number] # delete
 - Neither Apache2 nor NGINX are used. Check services by:
 ```bash
 $ systemctl list-units --type=service # || sudo service --status-all || ls -l /etc/init.d/*
+$ systemctl status apache2
+$ systemctl status nginx
+$ systemctl status lighttpd
 ```
 - Refer to Bonus.md
 - Check on host browser http://127.0.0.1:8080/info.php

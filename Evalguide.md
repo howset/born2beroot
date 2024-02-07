@@ -84,9 +84,11 @@ $ sudo nano /etc/hostname
 ```
 - Restore & reboot ```sudo hostnamectl set-hostname hsetyamu42```
 - View partitions: ```lsblk```
-- LVM (Logical Volume Manager) --> modern & flexible
+- LVM (Logical Volume Manager)
+	- a system of managing logical volumes (or filesystems) that is much more advanced and flexible than the traditional method of partitioning a disk	
 	- Able to create logical volumes out of physical volumes, allowing dynamic resizing.
 	- Can be moved between physical volumes.
+- https://wiki.ubuntu.com/Lvm
 
 ### Sudo
 - Check sudo is installed: ```dpkg -l | grep sudo```

@@ -163,8 +163,26 @@ $ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
 						# user other than hsetyamu should fail
 						# enter passwd
 ftp> ls						# look around
+
 ftp> cd files
 ftp> get testfile.txt 				# transfer testfile.txt to local machine
 ftp> put testfile.txt uploadtest.txt		# upload with a new name to test write permissions
 ftp> ls
 ```
+Notes:
+- Set/change password: ```sudo passwd username```
+- Create group: ```sudo groupadd groupname```
+- Delete group: ```sudo groupdel groupname```
+- Create user: ```sudo useradd username```
+- Delete user: ```sudo userdel username```
+- Sudo file: ```sudo nano /etc/sudoers``` or ```sudo visudo```
+- Check all local user: ```cut -d: -f1 /etc/passwd```
+- Check hostname: ```hostnamectl```
+- Change hostname: ```sudo hostnamectl set-hostname <new_hostname>```	# need reboot
+- Change hostname: ```sudo nano /etc/hostname```
+- Stop cron: ```sudo /etc/init.d/cron stop```
+- Start cron: ```sudo /etc/init.d/cron start```
+- Check AppArmor: ```sudo aa-status``` or ```/usr/sbin/aa-status ```
+- Check user in mariadb: ```SELECT User,Host FROM mysql.user;```
+- Delete db in mariadb: ```DROP DATABASE <db_name>;```
+- Delete user in maria db: ```DROP USER 'hsetyamu'@'localhost';```

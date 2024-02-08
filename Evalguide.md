@@ -193,3 +193,4 @@ Notes:
 - Check user in mariadb: ```SELECT User,Host FROM mysql.user;```
 - Delete db in mariadb: ```DROP DATABASE <db_name>;```
 - Delete user in maria db: ```DROP USER 'hsetyamu'@'localhost';```
+- ```@reboot sleep 30 && /usr/local/bin/monitoring.sh``` (https://phoenixnap.com/kb/crontab-reboot)

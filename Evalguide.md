@@ -45,6 +45,7 @@ $ getent group user42
 - Create new user (evaluator's name): ```sudo adduser <username>```
 - Explain password policy, refer to Setup.md
 - Check password policy: ```sudo chage -l <username>```
+- Changing password policy for certain users: ```sudo chage <username> -m 2 -M 30 -W 7``` # -m mindays -M maxdays -W warndays
 - Create new group ("evaluating"): ```sudo groupadd <groupname>```
 - Assign evaluator to evaluating: ```sudo usermod -aG <groupname> <username>```
 - Check group: ```groups <username>```

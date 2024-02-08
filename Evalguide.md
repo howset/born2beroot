@@ -194,3 +194,11 @@ Notes:
 - Delete db in mariadb: ```DROP DATABASE <db_name>;```
 - Delete user in maria db: ```DROP USER 'hsetyamu'@'localhost';```
 - ```@reboot sleep 30 && /usr/local/bin/monitoring.sh``` (https://phoenixnap.com/kb/crontab-reboot)
+- ```
+$ sudo nano /etc/vsftpd.conf
+write_enable=YES
+user_sub_token=$USER
+local_root=/home/$USER/ftp
+pasv_min_port=10100
+pasv_max_port=10100
+  ```

@@ -1,6 +1,6 @@
 # born2beroot
 
-This was the most interesting project so far. Many people don't like it. I do. In general, this project has a plethora of guides in the internet and they were all very easy to follow. The most demanding part was definitely the evaluation. To help the evaluation to go smoothly, I documented everything I did in the project. This is contained in the corresponding files (Setup, Bonus, & Evalguide).
+This was the most interesting project so far. Many people don't like it. I do. In general, this project has a plethora of guides in the internet and they were all fairly easy to follow. The most demanding part was definitely the evaluation. To help the evaluation to go smoothly, I documented everything I did in the project. This is contained in the corresponding files (Setup, Bonus, & Evalguide).
 
 Other than an obviously stupid mistake (forgot to modify root password to follow the newly created policies), the biggest challenge was displaying the *neofetch*-like script on **not** just the determined time period (10 mins), but also **directly** on login. Tried to manipulate the crontab without any success. Utilizing a sleep script was also not successful. This however should definitely be achievable because those that I evaluated managed to do just that. But in the end my evaluator suggested that this matter depends a lot on interpreting the task given in the pdf.
 

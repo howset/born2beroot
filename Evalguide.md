@@ -84,7 +84,7 @@ $ getent group user42
 ```shell
 $ sudo hostnamectl set-hostname <new_hostname>	
 or
-$ sudo nano /etc/hostname
+$ sudo nano /etc/hostname # Modify the file directly
 ```
 - Restore & reboot ```sudo hostnamectl set-hostname hsetyamu42```
 - View partitions: ```lsblk```

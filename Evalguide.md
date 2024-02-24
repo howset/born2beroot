@@ -54,7 +54,7 @@ $ getent group user42
 	- Password change & expiry
 	- Adv: maintain security integrity of the system
 	- Dis: frequent change, easy to forget.
-```
+```shell
 # PASS_MAX_DAYS => max days until password expires.
 # PASS_MIN_DAYS => min days until password change.
 # PASS_WARN_AGE => days until password warning.

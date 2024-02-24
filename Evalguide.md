@@ -65,7 +65,7 @@ PASS_WARN_AGE => days until password warning.
 	- Dis: complex password, easy to forget.
 - PAM (Pluggable Authentication Module)
 	- A suite of libraries that allows a Linux system administrator to configure methods to authenticate users.
-```
+```shell
 # retry => Prompt user at most N times before returning with error. The default is 1.
 # minlen => The minimum acceptable size for new password 
 # ucredit => Maximum uppercase characters, if less than 0 it is the minimum number of uppercase characters.
@@ -80,7 +80,7 @@ PASS_WARN_AGE => days until password warning.
 ### Hostname and Partitions
 - Check hostname (hsetyamu42)
 - Modify hostname (reboot afterwards)
-```bash
+```shell
 $ sudo hostnamectl set-hostname <new_hostname>	
 or
 $ sudo nano /etc/hostname
@@ -107,7 +107,7 @@ $ sudo nano /etc/hostname
 ### UFW
 - Check installation: ```dpkg -l | grep ufw```
 - Check function
-```bash
+```shell
 $ sudo ufw status
 $ sudo ufw allow 8080 # open port 8080
 $ sudo ufw status numbered # get number
@@ -151,7 +151,7 @@ $ sudo ufw delete [number] # delete
 	- HTTPS support (**Lighttpd**)
 
 - Neither Apache2 nor NGINX are used. Check services by:
-```bash
+```shell
 $ systemctl list-units --type=service # || sudo service --status-all || ls -l /etc/init.d/*
 $ systemctl status apache2
 $ systemctl status nginx
@@ -165,7 +165,7 @@ $ systemctl status lighttpd
 ### Free Choice
 - vsftpd: ftp service
 - show directory content for easier view before ftp.
-```bash
+```shell
 $ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
 						# user other than hsetyamu should fail
 						# enter passwd

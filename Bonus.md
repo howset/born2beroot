@@ -66,19 +66,19 @@ Create a volume group:
 
 ## PHP
 - Install php
-```bash
+```shell
 $ sudo apt install php php-common php-cgi php-cli php-mysql
 $ php -v				# check installation & version
 ```
 
 ## Lighttpd
 - If Apache is installed as dependency by php, remove it
-```bash
+```shell
 $ systemctl status apache2		# Check
 $ sudo apt purge apache2		# Uninstall
 ```
 - Install lighttpd
-```bash
+```shell
 $ sudo apt install lighttpd		# Install
 $ sudo lighttpd -v			# Check
 $ sudo systemctl start lighttpd		# Start
@@ -86,7 +86,7 @@ $ sudo systemctl enable lighttpd	# Enable
 $ sudo systemctl status lighttpd	# Check status
 ```
 - Allow port 80 (http) through UFW:
-```bash
+```shell
 $ sudo ufw allow http
 $ sudo ufw status
 ```
@@ -97,7 +97,7 @@ $ sudo ufw status
 	- Go to host machine browser and type in address http://127.0.0.1:8080 or http://localhost:8080. 
 	- Should see a Lighttpd "placeholder page".
 - Activate FastCGI module in VM (a protocol that interfaces applications (like PHP) to web servers)
-```bash
+```shell
 $ sudo lighty-enable-mod fastcgi
 $ sudo lighty-enable-mod fastcgi-php
 $ sudo service lighttpd force-reload
@@ -115,14 +115,14 @@ phpinfo();
 
 ## MariaDB
 - Install mariadb
-```bash
+```shell
 $ sudo apt install mariadb-server	# Install
 $ sudo systemctl start mariadb		# Start
 $ sudo systemctl enable mariadb		# Enable
 $ systemctl status mariadb		# Check status
 ```
 - Config mysql
-```bash
+```shell
 $ sudo mysql_secure_installation
 
 Enter current password for root (enter for none): <Enter>	# Root user of db, not vm, but same pass anyway
@@ -147,13 +147,13 @@ MariaDB [(none)]> FLUSH PRIVILEGES;
 MariaDB [(none)]> EXIT;
 ```
  - Check that the database was created
-```bash
+```shell
 $ mysql -u root -p
 MariaDB [(none)]> show databases; # Show db
 ```
 
 ## Wordpress itself
-```bash
+```shell
 $ sudo apt install wget tar
 $ wget http://wordpress.org/latest.tar.gz
 $ tar -xzvf latest.tar.gz
@@ -178,7 +178,7 @@ define( 'DB_PASSWORD', 'NumberCharsWhatever' );
 define( 'DB_HOST', 'localhost' );
 ```
 - Change permissions of WordPress directory to grant rights to web server and restart lighttpd:
-```bash
+```shell
 $ sudo chown -R www-data:www-data /var/www/html/
 $ sudo chmod -R 755 /var/www/html/
 $ sudo systemctl restart lighttpd
@@ -189,7 +189,7 @@ $ sudo systemctl restart lighttpd
 # Bonus 3 Service (FTP)
 
 ## FTP
-```
+```shell
 $ sudo apt install vsftpd 	# ftp
 $ dpkg -l | grep vsftpd		# Verify install
 $ sudo ufw allow 21		# Allow port 21 (ftp) 
@@ -197,12 +197,12 @@ $ sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak # Make backup
 $ sudo nano /etc/vsftpd.conf	# Config vsftpd
 ```
 -  enable FTP write command & prevent user from accessing files or using commands outside the directory tree
-```bash
+```shell
 write_enable=YES 		# allow changes to the filesystem(uploading)
 chroot_local_user=YES 		# make local users jailed by default
 ```
 - add these lines to /etc/vsftpd.conf
-```bash
+```shell
 # Insert user and path
 user_sub_token=$USER
 local_root=/home/$USER/ftp
@@ -213,7 +213,7 @@ userlist_file=/etc/vsftpd.userlist 	# specifies the file which lists users that 
 userlist_deny=NO 			#  to allow only certain users to login
 ```
 - set root folder for FTP-connected user to /home/hsetyamu/ftp
-```bash
+```shell
 $ sudo mkdir /home/hsetyamu/ftp
 $ sudo mkdir /home/hsetyamu/ftp/files
 $ sudo chown nobody:nogroup /home/hsetyamu/ftp	# Sets the ownerto be nobody
@@ -221,7 +221,7 @@ $ sudo chmod a-w /home/hsetyamu/ftp		# only the owner (FTP user) has write acces
 ```
 
 -  whitelist FTP
-```bash
+```shell
 $ echo hsetyamu | sudo tee -a /etc/vsftpd.userlist 	# Make the file and add username
 $ cat /etc/vsftpd.userlist 				# Test
 $ sudo systemctl restart vsftpd 			# Restart to load
@@ -229,12 +229,12 @@ $ sudo systemctl restart vsftpd 			# Restart to load
 
 ### Connecting to Server via FTP
 - Prepare test file and restart
-```bash
+```shell
 $ echo "vsftpd borntoberoot test file content" | sudo tee /home/hsetyamu/ftp/files/testfile.txt
 $ sudo service vsftpd restart
 ```
 
-```bash
+```shell
 $ ftp 127.0.0.1 				# via terminal in guest, exit by ctrl + d or "bye"
 						# user other than hsetyamu should fail
 						# enter passwd
